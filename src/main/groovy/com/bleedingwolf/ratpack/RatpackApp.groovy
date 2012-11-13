@@ -55,12 +55,20 @@ class RatpackApp {
         register('POST', path, handler)
     }
 
-	  def put = { path, handler ->
+	def put = { path, handler ->
         register('PUT', path, handler)
     }
 
     def delete = { path, handler ->
         register('DELETE', path, handler)
+    }
+    
+    def head = { path, handler ->
+      register('HEAD', path, handler)
+    }
+    
+    def options = { path, handler ->
+      register('OPTIONS', path, handler)
     }
 
     public void prepareScriptForExecutionOnApp(String scriptName){
@@ -75,7 +83,10 @@ class RatpackApp {
         binding.setVariable('post', app.post)
         binding.setVariable('put', app.put)
         binding.setVariable('delete', app.delete)
+        binding.setVariable('head', app.delete)
+        binding.setVariable('options', app.delete)
         binding.setVariable('set', app.set)
+        binding.setVariable('register', app.&register)
         gse.run scriptFile.name, binding
     }
 }
