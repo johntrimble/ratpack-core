@@ -83,8 +83,8 @@ class RatpackApp {
         binding.setVariable('post', app.post)
         binding.setVariable('put', app.put)
         binding.setVariable('delete', app.delete)
-        binding.setVariable('head', app.delete)
-        binding.setVariable('options', app.delete)
+        binding.setVariable('head', app.head)
+        binding.setVariable('options', app.options)
         binding.setVariable('set', app.set)
         binding.setVariable('register', app.&register)
         gse.run scriptFile.name, binding
